@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Grid | Advanced CSS</title>
+    <link rel="stylesheet" href="stylesheets/page-styling.css" />
+    <style>
+      /* this defines the form as a CSS grid container with two columns, one for form labels and the other for text based inputs. It also creates a gap pf 8% around grid items. */
+      form {
+        display: -ms-grid;
+        display: -moz-grid;
+        display: grid;
+
+        -ms-grid-columns: [form-labels] auto [form-text-inputs] 1fr;
+        grid-template-columns: [form-labels] auto [form-text-inputs] 1fr;
+
+        row-gap: 8%;
+        column-gap: 10px;
+
+        /* justify items allow us to hroizontally align the grid items inside their columns. */
+        justify-items: end;
+        /* align items allows us to verticallt align the grid items inside their rows */
+        align-items: center;
+      }
+      /* this styles the label to fill the column that we defined with a name oof form-lables. */
+      label {
+        font-weight: bold;
+        grid-column: form-labels;
+      }
+      /* this styles the label tags to fill the column that we defined with a name of form-text-inputs. */
+      input {
+        width: 100%;
+        grid-column: form-text-inputs;
+      }
+      /* this styles the text area tags to fill the column that we defined with a name of form-text-inputs. */
+      textarea {
+        width: 100%;
+        height: 150px;
+        grid-column: form-text-inputs;
+      }
+      /* this styles the submit button to go across both columns of the grid. */
+      input[type="submit"] {
+        grid-column: 1 / span 2;
+      }
+      /* 
+      thid media query that syates we shpuld change the styleing of the page when the browser windows width is 700px or less. */
+      @media all and (max-width: 800px) {
+        /* on a smaller screen, chanfge the form grid to hav epnly 1 column and change the gap around the grid items to be 3% instead of 8% */
+        form {
+          grid-template-rows: repeat(auto-fit, max-content);
+          grid-template-columns: 1fr;
+          row-gap: 3%;
+          column-gap: 0;
+          justify-items: normal;
+        }
+        /* label,
+        input,
+        textarea,
+        input[type="submit"] {
+          grid-column: 1 / span 1;
+        } */
+        /* this styles all labels to go across only 1 column. */
+        label {
+          grid-column: 1 / span 1;
+        }
+        /* this styles all inputs to go across only 1 column. */
+        input {
+          grid-column: 1 / span 1;
+        }
+        /* this styles the text area to go across only 1 column. */
+        textarea {
+          width: 100%;
+          height: 150px;
+          resize: none;
+          grid-column: 1 / span 1;
+        }
+        /* this styles the submit input to go across only 1 column. */
+        input[type="submit"] {
+          width: 100%;
+          grid-column: 1 / span 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Prints</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li>
+          <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <header>
+      <h1>Advanced CSS Website</h1>
+    </header>
+    <main>
+      <h2>CSS Grid Contact Form</h2>
+      <p>If you would like to contact me, please fill out the form below:</p>
+      <p id="warning">
+        Note: Please do not fill in your actual information as this website is
+        only for a school project.
+      </p>
+      <form method="get" action="javascript:location.reload();">
+        <label for="name">Full Name (First and Last) [required]:</label>
+        <input
+          type="text"
+          name="fullName"
+          id="name"
+          minlength="5"
+          maxlength="50"
+          required
+        />
+        <label for="email"
+          >Email Address (i.e. email@domain.com) [required]:</label
+        >
+        <input
+          type="email"
+          name="emailAddress"
+          id="email"
+          minlength="5"
+          maxlength="50"
+          required
+        />
+        <label for="phone"
+          >Phone Number (i.e. 1-888-867-5309) [required]:</label
+        >
+        <input
+          type="tel"
+          name="phoneNum"
+          id="phone"
+          minlength="14"
+          maxlength="16"
+          required
+        />
+        <label for="message">Please Enter Your Message Below:</label>
+        <textarea id="message" required></textarea>
+        <input type="submit" value="Send Us Your Message!" />
+      </form>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photo Grid | Advanced CSS</title>
+    <link rel="stylesheet" href="stylesheets/page-styling.css" />
+    <style>
+      section {
+        display: -ms-grid;
+        display: grid;
+
+        /*
+          These two properties define the rows and columns
+          of our CSS Grid. We use the repeat function to 
+          repeat the same measurement for each row and the
+          same measurement for each column.
+          For rows, we repeat 1 equal fraction of the height of
+          the container four times to create four rows.
+          For columns, we repeat 1 equal fraction of the width of
+          the container three times to create three columns.
+        */
+        /* -ms-grid-rows: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        -ms-grid-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr); */
+
+        /*
+          These two properties define the rows and columns
+          of our CSS Grid. We use the repeat function to 
+          repeat the same measurement for each row and the
+          same measurement for each column.
+          The auto-fill value allows us to create as many
+          rows or columns that we can in the space provided
+          by the grid container. The auto-fill value does not
+          collapse new columns and will preserve the space
+          created by new columns.
+        */
+        /* -ms-grid-rows: repeat(auto-fill, 300px);
+        grid-template-rows: repeat(auto-fill, 300px);
+        -ms-grid-columns: repeat(auto-fill, 400px);
+        grid-template-columns: repeat(auto-fill, 400px); */
+
+        /* 
+          These two properties define the rows and columns
+          of our CSS Grid. We use the repeat function to 
+          repeat the same measurement for each row and the
+          same measurement for each column.
+          The auto-fit value allows us to create as many
+          rows or columns that we can in the space provided
+          by the grid container. The auto-fit value will
+          collapse new columns and will resize existing columns
+          to fill the entire space because of the minmax function.
+          
+          The minmax function states that the minimum height of the
+          rows is 300px and the maximum space is an equal fraction of
+          the total height of the container. 
+          
+          The other minmax function states that the minimum width of the
+          columns is 400px and the maximum spaces is an equal fraction
+          of the total width of the container.
+        */
+        -ms-grid-rows: repeat(4, minmax(300px, 1fr));
+        grid-template-rows: repeat(4, minmax(300px, 1fr));
+
+        -ms-grid-columns: repeat(3, minmax(300px, 1fr));
+        grid-template-columns: repeat(3, minmax(400px, 1fr));
+        grid-template-areas:
+          "image5 image6 image6"
+          "image11 image6 image6"
+          "image7 image7 image10"
+          "image8 image2 image9";
+
+        /* 
+        the below could be helpful for defining functional areas in your wesbite with the help of css grid.
+        grid-template-areas:
+        "header header header header"
+        "article acrticle section1 section 2"
+        "article article image1 image2"
+        "article article image-text1 image-text2"
+        "footer footer footer footer";
+        ;   
+        */
+        /*
+          This property adds 10px of space between grid items. 
+        */
+        gap: 10px;
+      }
+
+      img {
+        width: 100%;
+      }
+      #image2 {
+        grid-area: image2;
+      }
+
+      /*#image3 {
+         This styles the id with image 3 to start at the firt row line ad the second column line. The ID of image3
+        then stops at row line 3 and column line 4. 
+        grid-area: 1/2 / span 2 / span 2;
+      } 
+      #image4 {
+        grid-area: 4/1 / span 2 / span 2;
+      }
+      */
+      #image5 {
+        grid-area: image5;
+      }
+      #image6 {
+        grid-area: image6;
+      }
+      #image7 {
+        grid-area: image7;
+      }
+      #image8 {
+        grid-area: image8;
+      }
+      #image9 {
+        grid-area: image9;
+      }
+      #image10 {
+        grid-area: image10;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Prints</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li>
+          <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <header>
+      <h1>Advanced CSS Website</h1>
+    </header>
+    <main>
+      <h2>CSS Grid Photo Gallery</h2>
+      <section>
+        <!-- Alt text to be added later. -->
+        <img src="images/top-view-mobo.jpg" id="image1" />
+        <img src="images/computer-repair.jpg" id="image2" />
+        <img src="images/part-recycle-pile.jpg" id="image3" />
+        <img src="images/psu.jpg" id="image4" />
+        <img src="images/intel-core.jpg" id="image5" />
+        <img src="images/storage.jpg" id="image6" />
+        <img src="images/motherboard-cords.jpg" id="image7" />
+        <img src="images/motherboard-boxes.jpg" id="image8" />
+        <img src="images/white-case.jpg" id="image9" />
+        <img src="images/RAM.jpg" id="image10" />
+        <img src="images/code.jpg" id="image11" />
+        <img src="images/asus_mobo.jpg" id="image12" />
+      </section>
+    </main>
+  </body>
+</html>

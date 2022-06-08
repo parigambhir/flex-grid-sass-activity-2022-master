@@ -1,0 +1,137 @@
+/* 
+  Styles every element with the font family of using Verdana first.
+  Then, if Verdana cannot be used, Geneva is used. Next, if Verdana and Geneva
+  cannot be used, Tahoma is used. Finally, if Verdana, Geneva, and Tahoma cannot
+  be used, the default sans-serif font for the browser is used.
+  This also styles every element to have a line height of 140% of the font size.
+  Finally, this styles all elements to not increase in size when the padding or border of that element is changes.
+*/
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  line-height: 140%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+/* This styles the body to not have any default margin or padding. */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* 
+  This styles the nav to stick to the top of the webpages and follow the
+  user as they scroll the website. It also gives the navigation bar a 
+  background colour of #000096 and adds spacing on the inside of the
+  navigation bar of the size of 1 M in the root font size.
+*/
+nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: #000096;
+}
+
+/* 
+  This styles the unordered list in the navigation bar to have no
+  bullet points, margin, or padding.
+*/
+nav ul {
+  display: -ms-flexbox;
+  display: -moz-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-pack: justify;
+  -moz-box-pack: justify;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* 
+  This styles the list items in the navigation's unordered list 
+  to be inline-block elements.
+*/
+nav ul li {
+  display: inline-block;
+  -ms-flex: 1 1 0px;
+  -moz-box-flex: 1;
+  -webkit-box-flex: 1 1 0;
+  -webkit-flex: 1 1 0;
+  flex: 1 1 0;
+}
+
+/*
+  This styles the anchors in the navigation's unordered list items
+  to be inline-block elements. It also makes them have padding on 
+  the top and bottom of 0.2 of an M in the root font size and on the 
+  left and right of 1 M in the root font size. It styles the anchors
+  to have a font colour of ghostwhite, no underline, be center aligned
+  in their boxes, and have a bolder font weight. Lastly, we define that
+  there will be a transition relating to the background colour of the
+  anchors that will ease in and out slowly and last 0.5 seconds.
+*/
+nav ul li a {
+  display: inline-block;
+  width: 100%;
+  padding: 1.2rem 2rem;
+
+  color: ghostwhite;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bolder;
+
+  transition: background-color ease-in-out 0.5s;
+}
+
+/* 
+  This makes it so that the anchors in the list items of the
+  navigation's unordered list will have their background colour change
+  to black when the user hovers or focuses on the link.
+*/
+nav ul li a:hover,
+nav ul li a:focus {
+  background-color: black;
+}
+
+/* 
+  This makes it so that the anchors in the list items of the
+  navigation's unordered list will have their font colour change
+  to gold if the user has visited that link.
+*/
+nav ul li a:visited {
+  color: gold;
+}
+
+/* 
+  This styles the header and main sections of the website to have
+  spacing on the outside of the elements of 1 M in the root font
+  size on the top and bottom of the header and main and 2.5% of the
+  width of the website on the left and right of the header and main
+  sections.
+*/
+header,
+main {
+  margin: 1rem 2.5%;
+}
+
+/* This styles the heading in the header to be center aligned. */
+header h1 {
+  text-align: center;
+}
+
+/* 
+  This styles the header inside the main section of the website,
+  which acts as a subheader, to have no extra margin.
+*/
+main header {
+  margin: 0;
+}
